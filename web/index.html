@@ -1,0 +1,105 @@
+<title>Brickroom</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>
+  /* Single look on purpose: a lit playroom, same in light and dark hosts. */
+  :root {
+    color-scheme: light;
+    --sky: #D9E1EA; --ink: #1F2A44; --muted: #52607A; --card: rgba(255, 255, 255, 0.92);
+    --line: #C9D2DE; --yellow: #FAC80A; --red: #B40000; --green: #00852B;
+  }
+  [hidden] { display: none !important; }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--sky); color: var(--ink); font: 15px/1.45 "Nunito Sans", system-ui, sans-serif; overflow: hidden; }
+  #view { position: fixed; inset: 0; width: 100%; height: 100%; touch-action: none; display: block; cursor: pointer; }
+  .hud { position: fixed; left: 0; right: 0; pointer-events: none; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding-inline: 16px; }
+  .hud > * { pointer-events: auto; }
+  .top { top: calc(env(safe-area-inset-top, 0px) + 12px); }
+  .brand { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; max-width: 420px; }
+  h1 { font: 800 1.7rem/1 "Baloo 2", "Nunito Sans", sans-serif; margin: 0; letter-spacing: -0.01em; display: flex; align-items: center; gap: 8px; }
+  .stud { width: 20px; height: 13px; background: var(--red); border-radius: 3px; position: relative; flex: none; }
+  .stud::before, .stud::after { content: ""; position: absolute; top: -4px; width: 6px; height: 4px; background: var(--red); border-radius: 2px 2px 0 0; }
+  .stud::before { left: 3px; } .stud::after { right: 3px; }
+  #stats { margin: 4px 0 0; font-size: 0.78rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .tabs { display: flex; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+  .tabs button { font: 700 0.9rem "Nunito Sans", sans-serif; border: 0; background: transparent; color: var(--ink); padding: 7px 16px; border-radius: 999px; cursor: pointer; }
+  .tabs button[aria-selected="true"] { background: var(--ink); color: #fff; }
+  .viewctl { position: fixed; right: 16px; top: calc(env(safe-area-inset-top, 0px) + 72px); display: flex; flex-direction: column; gap: 6px; }
+  .viewctl button, .steprow button { width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--ink); font: 700 1.1rem "Nunito Sans", sans-serif; cursor: pointer; }
+  button:focus-visible, input:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+  .panel { position: fixed; left: 16px; right: 16px; bottom: calc(env(safe-area-inset-bottom, 0px) + 14px); margin: 0 auto; max-width: 560px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 6px 24px rgba(31, 42, 68, 0.12); }
+  .panel .head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .panel strong { font: 800 1.05rem "Baloo 2", sans-serif; }
+  .hint { margin: 0; color: var(--muted); font-size: 0.85rem; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  #toylist { display: flex; flex-wrap: wrap; gap: 6px; }
+  .toy { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px 3px 5px; background: #fff; }
+  .toy em { font-style: normal; font-weight: 400; color: var(--muted); }
+  .toy.carried { border-color: var(--yellow); background: #FFF7D6; }
+  .toy.tidied { opacity: 0.55; }
+  .toy.tidied em { color: var(--green); font-weight: 700; }
+  .sw { width: 14px; height: 14px; border-radius: 4px; border: 1px solid rgba(0, 0, 0, 0.2); flex: none; }
+  .steprow { display: flex; align-items: center; gap: 8px; }
+  .steprow input { flex: 1; min-width: 0; accent-color: var(--red); }
+  #steplist { display: flex; flex-direction: column; gap: 4px; max-height: 26vh; overflow-y: auto; font-size: 0.85rem; }
+  #steplist li { display: flex; align-items: center; gap: 6px; }
+  #steplist b { font-variant-numeric: tabular-nums; min-width: 2.2em; text-align: right; }
+  #steplist code { margin-left: auto; font: 0.75rem ui-monospace, monospace; color: var(--muted); }
+  #stepobj { color: var(--muted); font-size: 0.85rem; }
+  #win { position: fixed; inset: 0; display: grid; place-items: center; background: rgba(31, 42, 68, 0.35); padding-inline: 16px; }
+  #win .card { background: #fff; border-radius: 16px; padding: 22px 24px; max-width: 340px; text-align: center; display: flex; flex-direction: column; gap: 10px; }
+  #win h2 { font: 800 1.6rem/1.1 "Baloo 2", sans-serif; margin: 0; }
+  #win button { font: 700 1rem "Nunito Sans", sans-serif; border: 0; border-radius: 10px; padding: 10px 16px; background: var(--ink); color: #fff; cursor: pointer; }
+  @media (max-width: 520px) {
+    .brand { padding: 8px 10px; } h1 { font-size: 1.35rem; } #stats { font-size: 0.72rem; }
+    .tabs button { padding: 6px 11px; }
+  }
+</style>
+
+<canvas id="view" aria-label="Isometric LEGO playroom"></canvas>
+
+<div class="hud top">
+  <div class="brand">
+    <h1><span class="stud" aria-hidden="true"></span>Brickroom</h1>
+    <p id="stats">Loading the model…</p>
+  </div>
+  <div class="tabs" role="tablist">
+    <button id="tab-play" role="tab" aria-selected="true">Play</button>
+    <button id="tab-build" role="tab" aria-selected="false">Build</button>
+  </div>
+</div>
+
+<div class="viewctl">
+  <button id="rotL" aria-label="Rotate view left">⟲</button>
+  <button id="rotR" aria-label="Rotate view right">⟳</button>
+  <button id="zin" aria-label="Zoom in">+</button>
+  <button id="zout" aria-label="Zoom out">−</button>
+</div>
+
+<section id="play-panel" class="panel">
+  <div class="head"><strong>Tidy the playroom</strong><span id="toycount" class="hint"></span></div>
+  <p class="hint">Tap the floor to walk. Pick up the toys and carry them to the market stall. Drag to pan, pinch to zoom.</p>
+  <ul id="toylist"></ul>
+</section>
+
+<section id="build-panel" class="panel" hidden>
+  <div class="head"><strong id="steplabel">Step 1</strong><span id="stepobj"></span></div>
+  <div class="steprow">
+    <button id="prev" aria-label="Previous step">‹</button>
+    <input id="stepr" type="range" min="1" max="1" value="1" aria-label="Build step">
+    <button id="next" aria-label="Next step">›</button>
+  </div>
+  <ul id="steplist"></ul>
+</section>
+
+<div id="win" hidden>
+  <div class="card">
+    <h2>Playroom tidied!</h2>
+    <p class="hint">Every toy is back in the market crate, in <span id="win-moves">0</span> steps.</p>
+    <button id="again">Play again</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="model.js"></script>
+<script src="game.js"></script>

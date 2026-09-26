@@ -1,0 +1,6 @@
+node_modules/
+input/
+*.jpg
+*.jpeg
+*.png
+!docs/*.png

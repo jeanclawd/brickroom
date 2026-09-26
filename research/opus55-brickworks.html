@@ -1,0 +1,240 @@
+<title>Opus 5.5 Brickworks</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F3F4F7; --paper:#FFFFFF; --ink:#1A2030; --muted:#5A6275; --line:#DCE0E8;
+  --red:#C4122F; --yellow:#E8B400; --blue:#1F5FBF; --stud:#E6E9EF;
+  --red-soft:#FBE7EA; --yellow-soft:#FCF3D2; --blue-soft:#E4ECFA;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#11141B; --paper:#1A1F29; --ink:#E7EAF1; --muted:#9AA3B5; --line:#2C3342;
+    --red:#FF6B7A; --yellow:#F5CB3C; --blue:#79A6F2; --stud:#181C25;
+    --red-soft:#3A1D23; --yellow-soft:#352D12; --blue-soft:#1A2740;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#11141B; --paper:#1A1F29; --ink:#E7EAF1; --muted:#9AA3B5; --line:#2C3342;
+  --red:#FF6B7A; --yellow:#F5CB3C; --blue:#79A6F2; --stud:#181C25;
+  --red-soft:#3A1D23; --yellow-soft:#352D12; --blue-soft:#1A2740;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  background-image:radial-gradient(circle at 12px 12px,var(--stud) 5px,transparent 5.5px);
+  background-size:24px 24px;
+  color:var(--ink);
+  font:16px/1.6 "IBM Plex Sans",system-ui,sans-serif;
+  padding-inline:16px; padding-block:32px 56px;
+}
+main{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{font-family:"Bricolage Grotesque","IBM Plex Sans",system-ui,sans-serif;text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(2rem,6vw,3rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.55rem;font-weight:700;display:flex;align-items:center;gap:10px}
+h3{font-size:1.1rem;font-weight:700}
+p{margin:0}
+a{color:var(--blue);text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.eyebrow{font:500 .75rem/1 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+header{display:flex;flex-direction:column;gap:12px;padding-block:8px}
+header .lede{font-size:1.1rem;color:var(--muted);max-width:62ch}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:22px;display:flex;flex-direction:column;gap:16px}
+.brick{width:22px;height:14px;border-radius:3px;position:relative;flex:none;margin-top:4px}
+.brick::before,.brick::after{content:"";position:absolute;top:-4px;width:6px;height:4px;border-radius:2px 2px 0 0;background:inherit}
+.brick::before{left:3px}.brick::after{right:3px}
+.b-red{background:var(--red)}.b-yel{background:var(--yellow)}.b-blue{background:var(--blue)}
+.tldr{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.tldr div{border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.tldr .t-red{background:var(--red-soft)}.tldr .t-yel{background:var(--yellow-soft)}.tldr .t-blue{background:var(--blue-soft)}
+.tldr strong{font-family:"Bricolage Grotesque",sans-serif;font-size:1.05rem}
+.gap-note{border-left:3px solid var(--yellow);padding:4px 0 4px 14px;color:var(--ink)}
+.item{display:flex;flex-direction:column;gap:8px;padding-top:16px;border-top:1px solid var(--line)}
+.item:first-of-type{border-top:0;padding-top:0}
+.who{font-size:.85rem;color:var(--muted)}
+.stats{display:flex;flex-wrap:wrap;gap:8px}
+.stat{font:500 .8rem/1 "IBM Plex Mono",monospace;padding:6px 9px;border-radius:5px;border:1px solid var(--line);background:var(--ground)}
+ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+ol.pipe{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:10px}
+ol.pipe li::marker{font-family:"IBM Plex Mono",monospace;color:var(--red);font-weight:500}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:520px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 .72rem/1.2 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.num{font-family:"IBM Plex Mono",monospace;white-space:nowrap}
+.sources{font-size:.88rem;columns:2 260px;column-gap:28px}
+.sources li{break-inside:avoid;margin-bottom:6px}
+footer{font-size:.82rem;color:var(--muted);text-align:center}
+</style>
+
+<main>
+<header>
+  <span class="eyebrow">Web scan · 26 Sep 2026 · 4 days after the Opus 5.5 launch</span>
+  <h1>Opus 5.5 Brickworks</h1>
+  <p class="lede">What people are building with Claude Opus 5.5 across three threads: physical LEGO designs with real instructions, brick-style films, and 3D, voxel and isometric games that run in the browser.</p>
+</header>
+
+<section class="panel">
+  <h2>Summary</h2>
+  <div class="tldr">
+    <div class="t-red"><strong>LEGO you can actually build</strong><span>Opus 5.5 outputs part lists and step-by-step booklets, and it checks collisions, connections and balance. It also orders the parts on BrickLink.</span></div>
+    <div class="t-yel"><strong>Brick films from a photo</strong><span>A community skill turns one photo into a Three.js diorama. The diorama builds itself brick by brick, then animates as stop-motion.</span></div>
+    <div class="t-blue"><strong>Games in one session</strong><span>People are cloning Fortnite, Minecraft and Terraria in Three.js in about 3 hours each, and building playable isometric pixel dioramas.</span></div>
+  </div>
+  <p class="gap-note"><strong>Gap:</strong> I found no public project that chains a LEGO model into an isometric or 2.5D game. All the parts exist separately (LDraw generation, a brick renderer, isometric scenes). The pipeline at the end shows how they could fit together.</p>
+</section>
+
+<section class="panel">
+  <h2><span class="brick b-red" aria-hidden="true"></span>LEGO assemblies</h2>
+
+  <div class="item">
+    <h3>Life-size Microduck from real parts</h3>
+    <span class="who">Victor M (@victormustar) on X, ~24 Sep</span>
+    <p>He asked Opus 5.5 to design a Microduck he could build with real LEGO. The model designed it life-size and validated the build. It then produced a LEGO-style instruction booklet, priced every piece in the browser and prepared the orders on BrickLink from 3 sellers.</p>
+    <div class="stats">
+      <span class="stat">1,113 parts</span><span class="stat">3,204 connections</span><span class="stat">0 collisions</span>
+      <span class="stat">centre of mass inside feet</span><span class="stat">141 pages · 237 steps</span><span class="stat">€95 total</span>
+    </div>
+    <p class="who">Takeaway: the verification loop is the interesting part. It checks that every step is buildable, not only that the model looks right.</p>
+  </div>
+
+  <div class="item">
+    <h3>Anthropic's own demo: a toy brick-building app</h3>
+    <span class="who">@claudeai on X, launch week</span>
+    <p>"A toy brick-building app. Turn a photo or a description into a buildable model with custom instructions." This is one of the official early-exploration clips for Opus 5.5. Linus Ekenstam's reaction to the LEGO demos: LEGO should ship an official bricks API so you could order anything you design.</p>
+  </div>
+
+  <div class="item">
+    <h3>BrickBuilderAI: direct Claude to LDraw</h3>
+    <span class="who">jjohnson5253/brickbuilderai · PR #127 (open source)</span>
+    <p>A new <span class="mono">/claudeToBricks</span> endpoint sends text or images straight to <span class="mono">claude-opus-5-5</span> and gets back an LDraw model. The output is validated, stored with a parts list, converted to MPD and rendered in 3D with instructions.</p>
+    <ul>
+      <li>Opus 5.5 does not support forced tool choice. The endpoint accepts either structured tool output or a plain-text LDR fallback, and validates both.</li>
+      <li>Flat price of $0.10 per piece for Claude-direct generations. Model override: <span class="mono">ANTHROPIC_LDR_MODEL</span>.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <h3>Tooling people pair it with</h3>
+    <ul>
+      <li><strong>LDraw</strong> (.ldr/.mpd): the open part library and file format. The model writes it as text.</li>
+      <li><strong>LPub3D</strong> and <strong>Web Lic</strong>: turn LDraw files into instruction booklets (PDF or images).</li>
+      <li><strong>BrickLink</strong>: part pricing and multi-seller ordering.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="panel">
+  <h2><span class="brick b-yel" aria-hidden="true"></span>Videos and animation</h2>
+
+  <div class="item">
+    <h3>brick-film skill (HyperFrames)</h3>
+    <span class="who">heygen-com/hyperframes-community-skills · PR #17 · Opus 5.5 is credited as co-author</span>
+    <p>You give it one photo. It builds a Three.js diorama from real brick shapes: bricks, plates, tiles, slopes, and minifigs with printed faces and molded hair. The diorama assembles itself brick by brick until it matches the photo's framing. It then plays as a stop-motion brickfilm animated on twos. A label counts parts and stud connections as they land.</p>
+    <ul>
+      <li>Pipeline: <span class="mono">new-project.sh</span> scaffolds → <span class="mono">trace_object.py</span> maps the image to a stud × plate grid → <span class="mono">shoot.sh</span> matches the camera over several rounds → <span class="mono">verify.sh</span> checks determinism → local GPU render.</li>
+      <li>Kit: ES modules for part geometry, a voxel-to-brick converter, a minifig rig and car builders. Its only dependency is Three.js.</li>
+      <li>Limits: renders locally only. Pins Three.js 0.181.2, GSAP 3.14.2 and HyperFrames CLI 0.8.74.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <h3>Other code-generated films</h3>
+    <ul>
+      <li><strong>Michael Guo</strong>: a 2-minute sand-animation film of US history, with music and sound effects.</li>
+      <li><strong>Stefan Vaskevich</strong>: a procedural Blender castle with lake reflections and fireworks, rendered as a 10 s clip.</li>
+      <li><strong>DreW</strong>: a code-built stop-motion piece, with sound design iterated in the same session.</li>
+      <li><strong>Higgsfield AI</strong>: a Three.js animation that gives everyday objects cartoon personalities.</li>
+      <li><strong>Voxel soccer</strong> (Tripo prompt gallery): a single Three.js file where a blocky player dribbles, scores and sets off celebration particles.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="panel">
+  <h2><span class="brick b-blue" aria-hidden="true"></span>3D, voxel and isometric games</h2>
+
+  <div class="item">
+    <h3>Isometric: The Cyclops' Island</h3>
+    <span class="who">neta.art · "Opus 5.5 Pixel Art Scenes Creator"</span>
+    <p>This is the clearest isometric 2.5D example. It is a playable diorama of Odyssey Book IX: a shore with a camp and a ship, a dark grove, and Polyphemus's cave. You move with WASD or click-to-walk, and the climax has dialogue choices. It sits next to eight non-interactive lo-fi loop scenes.</p>
+    <div class="stats"><span class="stat">320×180 native, integer upscale</span><span class="stat">30 s seamless loops</span><span class="stat">generated from a written brief</span></div>
+  </div>
+
+  <div class="item">
+    <h3>Single-session clones</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Project</th><th>Who</th><th>Time</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Fortnite BR</td><td>Minimunch</td><td class="num">~3.5 h</td><td>Battle bus, loot, building, working storm</td></tr>
+          <tr><td>Minecraft</td><td>Minimunch</td><td class="num">~3.5 h</td><td>Dynamic weather and lighting</td></tr>
+          <tr><td>Terraria 3D</td><td>Minimunch</td><td class="num">~3 h</td><td>Low-poly, crafting, bosses; early textures bland</td></tr>
+          <tr><td>Getting Over It</td><td>Minimunch</td><td class="num">~2.5 h</td><td>Physics-based hammer in Three.js</td></tr>
+          <tr><td>Unreal Engine games</td><td>Brendan Jowett</td><td class="num">1–2 h</td><td>Beat GPT-6 Astra on every test; ~$60–70 for 2 h including Blender assets</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>Voxel and block worlds</h3>
+    <ul>
+      <li><strong>VoxelCraft</strong> (eRebernisek, GitHub): infinite terrain, biomes, caves and a day/night cycle. Plain ES modules with no build step. Textures and sounds are procedural, with no external assets.</li>
+      <li><strong>Lumen Vale</strong> (Noah Wachnik): a Minecraft-style world with custom shaders and water ripples.</li>
+      <li><strong>ChrisGPT</strong>: a block world with brick houses, streetlights and realistic cloud lighting.</li>
+      <li><strong>bluedev</strong>: Opus 5.5 built a voxel self-portrait of itself, animated.</li>
+      <li><strong>Vib3Coded, "Pelagia"</strong>: an island railway with an underwater cross-section. The style is close to a tilt-shift diorama.</li>
+      <li><strong>nicekate</strong>: an IKEA-style step-by-step furniture assembly animation. The instruction-booklet idea works outside LEGO too.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>What these projects have in common</h2>
+  <ul>
+    <li><strong>Everything is code.</strong> Most projects are one Three.js file or a few ES modules, with procedural geometry, textures and audio and no asset pipeline.</li>
+    <li><strong>Built-in verification.</strong> The best LEGO work checks its own output: collision tests, connection counts, centre of mass and a "buildable at every step" check. The brick-film skill checks determinism and camera match.</li>
+    <li><strong>Lighting matters most.</strong> Reviewers credit lighting and colour grading for the look. Characters and map pieces still look unfinished close up.</li>
+    <li><strong>Limits.</strong> Expect lag and poor optimisation in one-shot games. Cost adds up fast. One creator used 15% of a weekly allowance in a single session (reported for Opus 5).</li>
+  </ul>
+</section>
+
+<section class="panel">
+  <h2>A possible pipeline: LEGO set to isometric game</h2>
+  <p>Nobody has published this chain yet. Each step reuses something from above:</p>
+  <ol class="pipe">
+    <li>Photo or prompt → Opus 5.5 → LDraw <span class="mono">.ldr</span>. Validate collisions and connectivity, as BrickBuilderAI and the Microduck project do.</li>
+    <li>LDraw → LPub3D → a PDF booklet, plus a BrickLink parts list for the physical build.</li>
+    <li>The same model → the brick-film kit's part geometry → a build-up animation, then a stop-motion video.</li>
+    <li>The same Three.js scene with an <span class="mono">OrthographicCamera</span> at the true isometric angle (35.264° pitch, 45° yaw) → a 2.5D game level. Minifigs become sprites or rigged characters, and stud positions become the walk grid.</li>
+  </ol>
+  <p class="who">One source model gives you a buildable set, a video and a playable level. The stud grid gives the game discrete tiles for free.</p>
+</section>
+
+<section class="panel">
+  <h2>Sources</h2>
+  <ul class="sources">
+    <li><a href="https://x.com/victormustar/status/2103110908444631120">Victor M: Microduck (X)</a></li>
+    <li><a href="https://x.com/LinusEkenstam/status/2103217737048711428">Linus Ekenstam: bricks API (X)</a></li>
+    <li><a href="https://x.com/claudeai/status/2102471885061812714">@claudeai: toy brick-building app (X)</a></li>
+    <li><a href="https://github.com/jjohnson5253/brickbuilderai/pull/127">BrickBuilderAI PR #127</a></li>
+    <li><a href="https://github.com/heygen-com/hyperframes-community-skills/pull/17">HyperFrames brick-film skill PR #17</a></li>
+    <li><a href="https://neta.art/app/opus-5-5-for-pixel-art-scenes-creator">neta.art pixel scenes / Cyclops' Island</a></li>
+    <li><a href="https://www.techeblog.com/claude-opus-5-5-building-games-from-scratch-fortnite/">TechEBlog: Fortnite and friends</a></li>
+    <li><a href="https://ixbt.games/en/news/2026/09/25/438160-ii-claude-opus-55-obosel-gpt-6-astra-v-sozdanii-igr-na-unreal-engine.html">iXBT: Opus 5.5 vs GPT-6 Astra in Unreal</a></li>
+    <li><a href="https://github.com/eRebernisek/voxelcraft-opus-test">VoxelCraft repo</a></li>
+    <li><a href="https://github.com/OpenVGLab/awesome-opus5.5-frontend-showcases">awesome-opus5.5-frontend-showcases</a></li>
+    <li><a href="https://ohmyopus.com/en/s/three">ohmyopus: 3D, Blender and simulation</a></li>
+    <li><a href="https://favtutor.com/claude-opus-5-5-real-examples/">FavTutor: 10 examples</a></li>
+    <li><a href="https://aiidelist.com/blog/claude-opus-5-5-examples">aiidelist: 8 demos</a></li>
+    <li><a href="https://www.tripo3d.ai/3d-prompts/claude-opus-5-5-2102739444256383089">Tripo: voxel soccer prompt</a></li>
+    <li><a href="https://www.mindstudio.ai/blog/claude-opus-5-ai-game-generation">MindStudio: one-shot 3D games</a></li>
+    <li><a href="https://www.anthropic.com/claude-opus-5-5">Anthropic: Opus 5.5 launch (22 Sep)</a></li>
+  </ul>
+  <p class="who">The X posts returned a paywall error when I fetched them. Their figures come from search snippets and secondary coverage, not the original threads.</p>
+</section>
+
+<footer>Compiled by Claudette · 26 Sep 2026 · Published at <a href="https://claude.ai/artifact/N2GsPPMzKboAYAzSddoe2B">claude.ai/artifact/N2GsPPMzKboAYAzSddoe2B</a></footer>
+</main>

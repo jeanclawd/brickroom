@@ -1,0 +1,112 @@
+part,name,color,ldraw_color,bricklink_color,qty
+3005,Brick 1 x 1,Tan,19,2,43
+3008,Brick 1 x 8,Sand Blue,379,55,42
+3005,Brick 1 x 1,White,15,1,36
+3009,Brick 1 x 6,Light Bluish Gray,71,86,28
+3622,Brick 1 x 3,Tan,19,2,19
+3008,Brick 1 x 8,Light Bluish Gray,71,86,18
+3009,Brick 1 x 6,Tan,19,2,14
+3004,Brick 1 x 2,Tan,19,2,11
+6636,Tile 1 x 6,White,15,1,10
+3005,Brick 1 x 1,Light Bluish Gray,71,86,9
+3004,Brick 1 x 2,Yellow,14,3,8
+3005,Brick 1 x 1,Yellow,14,3,7
+3008,Brick 1 x 8,Tan,19,2,7
+3004,Brick 1 x 2,Black,0,11,6
+3004,Brick 1 x 2,White,15,1,6
+3005,Brick 1 x 1,Sand Blue,379,55,6
+3009,Brick 1 x 6,Sand Blue,379,55,6
+3010,Brick 1 x 4,Yellow,14,3,6
+3460,Plate 1 x 8,Tan,19,2,6
+3009,Brick 1 x 6,Light Aqua,323,152,5
+3010,Brick 1 x 4,Light Aqua,323,152,5
+3010,Brick 1 x 4,Tan,19,2,5
+3010,Brick 1 x 4,Light Bluish Gray,71,86,5
+3034,Plate 2 x 8,Tan,19,2,5
+3004,Brick 1 x 2,Orange,25,4,4
+3005,Brick 1 x 1,Light Aqua,323,152,4
+3005,Brick 1 x 1,Orange,25,4,4
+3023,Plate 1 x 2,Yellow,14,3,4
+2431,Tile 1 x 4,Tan,19,2,3
+2431,Tile 1 x 4,White,15,1,3
+3004,Brick 1 x 2,Light Aqua,323,152,3
+3004,Brick 1 x 2,Reddish Brown,70,88,3
+3005,Brick 1 x 1,Red,4,5,3
+3005,Brick 1 x 1,Medium Azure,322,156,3
+3008,Brick 1 x 8,Yellow,14,3,3
+3010,Brick 1 x 4,Dark Red,320,59,3
+3622,Brick 1 x 3,Light Bluish Gray,71,86,3
+3622,Brick 1 x 3,Reddish Brown,70,88,3
+4073,Plate Round 1 x 1,Orange,25,4,3
+3004,Brick 1 x 2,Dark Red,320,59,2
+3004,Brick 1 x 2,Medium Azure,322,156,2
+3004,Brick 1 x 2,Blue,1,7,2
+3004,Brick 1 x 2,Bright Light Orange,191,110,2
+3005,Brick 1 x 1,Blue,1,7,2
+3005,Brick 1 x 1,Bright Light Orange,191,110,2
+3005,Brick 1 x 1,Lime,27,34,2
+3005,Brick 1 x 1,Green,2,6,2
+3009,Brick 1 x 6,Blue,1,7,2
+3009,Brick 1 x 6,Dark Red,320,59,2
+3023,Plate 1 x 2,Bright Light Orange,191,110,2
+3023,Plate 1 x 2,White,15,1,2
+3062b,Brick Round 1 x 1,Medium Azure,322,156,2
+3070b,Tile 1 x 1,Light Bluish Gray,71,86,2
+3622,Brick 1 x 3,Light Aqua,323,152,2
+3622,Brick 1 x 3,White,15,1,2
+3622,Brick 1 x 3,Yellow,14,3,2
+4073,Plate Round 1 x 1,Yellow,14,3,2
+4073,Plate Round 1 x 1,Magenta,26,71,2
+4073,Plate Round 1 x 1,Red,4,5,2
+2431,Tile 1 x 4,Light Bluish Gray,71,86,1
+3002,Brick 2 x 3,White,15,1,1
+3003,Brick 2 x 2,White,15,1,1
+3004,Brick 1 x 2,Light Bluish Gray,71,86,1
+3004,Brick 1 x 2,Red,4,5,1
+3005,Brick 1 x 1,Dark Red,320,59,1
+3005,Brick 1 x 1,Reddish Brown,70,88,1
+3010,Brick 1 x 4,Blue,1,7,1
+3010,Brick 1 x 4,Reddish Brown,70,88,1
+3020,Plate 2 x 4,Yellow,14,3,1
+3020,Plate 2 x 4,Sand Green,378,48,1
+3020,Plate 2 x 4,Tan,19,2,1
+3021,Plate 2 x 3,Tan,19,2,1
+3022,Plate 2 x 2,White,15,1,1
+3023,Plate 1 x 2,Dark Red,320,59,1
+3023,Plate 1 x 2,Red,4,5,1
+3023,Plate 1 x 2,Black,0,11,1
+3023,Plate 1 x 2,Flat Silver,179,95,1
+3023,Plate 1 x 2,Sand Green,378,48,1
+3023,Plate 1 x 2,Tan,19,2,1
+3024,Plate 1 x 1,Yellow,14,3,1
+3032,Plate 4 x 6,Light Bluish Gray,71,86,1
+3034,Plate 2 x 8,Dark Orange,484,68,1
+3035,Plate 4 x 8,Dark Orange,484,68,1
+3035,Plate 4 x 8,Yellow,14,3,1
+3035,Plate 4 x 8,Sand Green,378,48,1
+3035,Plate 4 x 8,Tan,19,2,1
+3062b,Brick Round 1 x 1,Yellow,14,3,1
+3062b,Brick Round 1 x 1,Flat Silver,179,95,1
+3062b,Brick Round 1 x 1,White,15,1,1
+3068b,Tile 2 x 2,Light Bluish Gray,71,86,1
+3068b,Tile 2 x 2,Dark Bluish Gray,72,85,1
+3068b,Tile 2 x 2,White,15,1,1
+3069b,Tile 1 x 2,Dark Bluish Gray,72,85,1
+3070b,Tile 1 x 1,Tan,19,2,1
+3070b,Tile 1 x 1,White,15,1,1
+3460,Plate 1 x 8,Yellow,14,3,1
+3460,Plate 1 x 8,Sand Green,378,48,1
+3622,Brick 1 x 3,Blue,1,7,1
+3622,Brick 1 x 3,Dark Red,320,59,1
+3623,Plate 1 x 3,Red,4,5,1
+3623,Plate 1 x 3,White,15,1,1
+3710,Plate 1 x 4,Light Bluish Gray,71,86,1
+3811,Baseplate 32 x 32,Tan,19,2,1
+4073,Plate Round 1 x 1,Black,0,11,1
+4073,Plate Round 1 x 1,Lime,27,34,1
+4073,Plate Round 1 x 1,Green,2,6,1
+4073,Plate Round 1 x 1,White,15,1,1
+63864,Tile 1 x 3,Light Bluish Gray,71,86,1
+63864,Tile 1 x 3,Tan,19,2,1
+87079,Tile 2 x 4,Light Bluish Gray,71,86,1
+98138,Tile Round 1 x 1,Medium Azure,322,156,1
