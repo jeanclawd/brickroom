@@ -4,3 +4,4 @@ input/
 *.jpeg
 *.png
 !docs/*.png
+!docs/icons/*.png
