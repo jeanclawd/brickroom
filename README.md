@@ -2,8 +2,9 @@
 
 A photo of a real playroom, turned into a buildable LEGO model, a parts list, step-by-step instructions and an isometric game.
 
-- **Play it:** [Brickroom game](https://claude.ai/artifact/KBWtyw5RSE68i5y54NhbpF) (the same file as `dist/brickroom.html`)
-- **Research behind it:** [Opus 5.5 Brickworks report](https://claude.ai/artifact/N2GsPPMzKboAYAzSddoe2B) (source in `research/opus55-brickworks.html`)
+- **Play it:** [jeanclawd.github.io/brickroom](https://jeanclawd.github.io/brickroom/). It installs as an app (PWA) and works offline once loaded.
+- **Research behind it:** [jeanclawd.github.io/brickroom/research](https://jeanclawd.github.io/brickroom/research/), the Opus 5.5 Brickworks report
+- Also published as Claude artifacts: [game](https://claude.ai/artifact/KBWtyw5RSE68i5y54NhbpF), [report](https://claude.ai/artifact/N2GsPPMzKboAYAzSddoe2B)
 
 ![Play mode](docs/play.png)
 
@@ -33,6 +34,7 @@ From `out/report.md`:
 | `out/bricklink.xml` | BrickLink wanted list. Upload it at bricklink.com/v2/wanted/upload.page. |
 | `out/report.md` | Validation report |
 | `dist/brickroom.html` | The game and build viewer in one file. It loads three.js r128 from cdnjs. |
+| `docs/` | The GitHub Pages site: the game as an installable PWA (three.js vendored, service worker for offline use) and the research report at `docs/research/`. Built by `node bundle.mjs`. |
 
 BrickLink colour ids in `lib/catalog.mjs` are from memory. Check them before ordering. The model has not been priced.
 
@@ -46,7 +48,8 @@ BrickLink colour ids in `lib/catalog.mjs` are from memory. Check them before ord
 
 ```sh
 node build.mjs    # model + checks + outputs; exits 1 if any check fails
-node bundle.mjs   # dist/brickroom.html
+node bundle.mjs   # dist/brickroom.html and the docs/ site
+python3 icons.py  # PWA icons (needs Pillow; only when the icon changes)
 ```
 
 No dependencies. Needs Node 18+.

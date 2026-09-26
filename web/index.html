@@ -20,6 +20,8 @@
   .stud { width: 20px; height: 13px; background: var(--red); border-radius: 3px; position: relative; flex: none; }
   .stud::before, .stud::after { content: ""; position: absolute; top: -4px; width: 6px; height: 4px; background: var(--red); border-radius: 2px 2px 0 0; }
   .stud::before { left: 3px; } .stud::after { right: 3px; }
+  .links { margin: 2px 0 0; font-size: 0.78rem; }
+  .links a { color: var(--ink); font-weight: 700; }
   #stats { margin: 4px 0 0; font-size: 0.78rem; color: var(--muted); font-variant-numeric: tabular-nums; }
   .tabs { display: flex; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
   .tabs button { font: 700 0.9rem "Nunito Sans", sans-serif; border: 0; background: transparent; color: var(--ink); padding: 7px 16px; border-radius: 999px; cursor: pointer; }
@@ -62,6 +64,7 @@
   <div class="brand">
     <h1><span class="stud" aria-hidden="true"></span>Brickroom</h1>
     <p id="stats">Loading the model…</p>
+    <p class="links"><a href="https://jeanclawd.github.io/brickroom/research/">Research</a> · <a href="https://github.com/jeanclawd/brickroom">Source</a></p>
   </div>
   <div class="tabs" role="tablist">
     <button id="tab-play" role="tab" aria-selected="true">Play</button>
