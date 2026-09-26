@@ -2,8 +2,8 @@
 
 A photo of a real playroom, turned into a buildable LEGO model, a parts list, step-by-step instructions and an isometric game.
 
-- **Play it:** [Brickroom game](https://claude.ai/artifact/KBWtyw5RSE68i5y54NhbpF) (private artifact; the same file as `dist/brickroom.html`)
-- **Research behind it:** [Opus 5.5 Brickworks report](https://claude.ai/artifact/N2GsPPMzKboAYAzSddoe2B) (private artifact; source in `research/opus55-brickworks.html`)
+- **Play it:** [Brickroom game](https://claude.ai/artifact/KBWtyw5RSE68i5y54NhbpF) (the same file as `dist/brickroom.html`)
+- **Research behind it:** [Opus 5.5 Brickworks report](https://claude.ai/artifact/N2GsPPMzKboAYAzSddoe2B) (source in `research/opus55-brickworks.html`)
 
 ![Play mode](docs/play.png)
 
